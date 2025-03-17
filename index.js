@@ -1,3 +1,6 @@
+if (process.env.PORT) {
+  console.log(`Port detected: ${process.env.PORT}, but not needed for Discord bot.`);
+}
 require('dotenv').config();
 const { Client, GatewayIntentBits } = require('discord.js');
 
@@ -66,3 +69,10 @@ client.on('messageCreate', async (message) => {
 });
 
 client.login(process.env.TOKEN);
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => res.send('Bot is running!'));
+
+const port = process.env.PORT || 3000; // Render looks for PORT
+app.listen(port, () => console.log(`Listening on port ${port}`));
