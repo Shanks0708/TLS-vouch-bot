@@ -7,4 +7,4 @@ services:
     envVars:
       - key: TOKEN
         sync: false
-       
+        
